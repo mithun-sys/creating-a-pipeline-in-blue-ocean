@@ -5,17 +5,19 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the Java project...'
-                 dir('java-app') {
-                sh 'mvn clean install'
+                dir('java-app') {
+                    sh 'mvn clean install'
+                }
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'mvn test'
+                dir('java-app') {
+                    sh 'mvn test'
+                }
             }
         }
     }
-}
-
 }
