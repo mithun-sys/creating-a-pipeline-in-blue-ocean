@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the Java project...'
+                 dir('java-app') {
                 sh 'mvn clean install'
             }
         }
@@ -15,4 +16,6 @@ pipeline {
             }
         }
     }
+}
+
 }
